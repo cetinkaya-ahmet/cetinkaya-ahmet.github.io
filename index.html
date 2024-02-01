@@ -43,6 +43,14 @@
                 </div>
             </div>
         </header>
+
+        <input type="button" value="Say hello" onClick="showAndroidToast('Hello Android!')" />
+
+<script type="text/javascript">
+    function showAndroidToast(toast) {
+        Android.showToast(toast);
+    }
+</script>
         <!-- About-->
         <section class="about-section text-center" id="about">
             <div class="container">
