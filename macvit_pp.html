@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacVit - Gizlilik Politikası</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #1e3c72;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .section ul {
+            padding-left: 20px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: none;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .contact-info a {
+            color: #a8edea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>MacVit</h1>
+            <p>Gizlilik Politikası</p>
+        </div>
+
+        <div class="content">
+            <div class="highlight">
+                <p><strong>Son Güncelleme:</strong> 2 Ağustos 2025</p>
+                <p>MacVit uygulaması olarak kullanıcılarımızın gizliliğini korumak bizim için önceliktir. Bu gizlilik politikası, uygulamızın nasıl çalıştığını ve verilerinizi nasıl koruduğumuzu açıklamaktadır.</p>
+            </div>
+
+            <div class="section">
+                <h2>1. Toplanan Bilgiler</h2>
+                <p>MacVit uygulaması, Mac bilgisayarınızın sistem bilgilerini yerel olarak okur ve görüntüler:</p>
+                <ul>
+                    <li>Ağ bağlantı bilgileri (IP adresi, bağlantı durumu)</li>
+                    <li>Disk kullanım bilgileri (boş alan, toplam kapasite)</li>
+                    <li>Grafik kartı bilgileri (model, bellek kullanımı)</li>
+                    <li>Çalışan süreç bilgileri (CPU ve bellek kullanımı)</li>
+                    <li>Güç ve batarya durumu bilgileri</li>
+                    <li>Sistem sıcaklık ve fan hızı bilgileri</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>2. Veri Toplama ve Kullanım</h2>
+                <p><strong>Önemli:</strong> MacVit uygulaması tamamen yerel olarak çalışır. Hiçbir kişisel veri, sistem bilgisi veya kullanım verisi harici sunuculara gönderilmez.</p>
+                <ul>
+                    <li>Tüm veriler sadece cihazınızda işlenir</li>
+                    <li>İnternet bağlantısı gerektirmez</li>
+                    <li>Veri toplama veya analitik servisleri kullanmaz</li>
+                    <li>Reklam ağları ile entegrasyon yoktur</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>3. Veri Saklama</h2>
+                <p>Uygulama, ayarlar ve tercihler dışında hiçbir veriyi kalıcı olarak saklamaz:</p>
+                <ul>
+                    <li>Sistem bilgileri anlık olarak okunur ve gösterilir</li>
+                    <li>Geçmiş veriler saklanmaz</li>
+                    <li>Sadece kullanıcı tercihleri (tema, görünüm ayarları) yerel olarak saklanır</li>
+                    <li>Uygulama silindiğinde tüm veriler tamamen kaldırılır</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>4. Veri Güvenliği</h2>
+                <p>Verilerinizin güvenliği için aldığımız önlemler:</p>
+                <ul>
+                    <li>Tüm veriler Apple'ın sandboxed ortamında işlenir</li>
+                    <li>Sistem bilgilerine sadece gerekli yetkilerle erişim</li>
+                    <li>Veri şifreleme ve güvenli kod uygulamaları</li>
+                    <li>Düzenli güvenlik güncellemeleri</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>5. Üçüncü Taraf Servisleri</h2>
+                <p>MacVit uygulaması:</p>
+                <ul>
+                    <li>Hiçbir üçüncü taraf analitik servisi kullanmaz</li>
+                    <li>Sosyal medya entegrasyonu içermez</li>
+                    <li>Reklam ağları ile bağlantısı yoktur</li>
+                    <li>Harici API çağrıları yapmaz</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>6. Çocukların Gizliliği</h2>
+                <p>Uygulamamız 13 yaş altındaki çocuklardan bilerek veri toplamaz. Ebeveynler, çocuklarının uygulamayı kullanımını denetleyebilir ve gerektiğinde kısıtlayabilir.</p>
+            </div>
+
+            <div class="section">
+                <h2>7. Kullanıcı Hakları</h2>
+                <p>MacVit kullanıcıları olarak haklarınız:</p>
+                <ul>
+                    <li>Uygulamayı istediğiniz zaman kaldırabilirsiniz</li>
+                    <li>Sistem izinlerini MacOS ayarlarından yönetebilirsiniz</li>
+                    <li>Gizlilik politikası ile ilgili sorularınızı sorabilirsiniz</li>
+                    <li>Veri işleme konusunda şeffaflık talep edebilirsiniz</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>8. Politika Değişiklikleri</h2>
+                <p>Bu gizlilik politikasında yapılacak değişiklikler:</p>
+                <ul>
+                    <li>App Store üzerinden uygulama güncellemeleri ile duyurulur</li>
+                    <li>Önemli değişiklikler kullanıcılara bildirilir</li>
+                    <li>Güncel versiyon her zaman bu sayfada yayınlanır</li>
+                </ul>
+            </div>
+
+            <div class="contact-info">
+                <h3>İletişim</h3>
+                <p>Gizlilik politikamız hakkında sorularınız için:</p>
+                <p><strong>E-posta:</strong> <a href="mailto:privacy@macvit.com">privacy@macvit.com</a></p>
+                <p><strong>Web:</strong> <a href="https://macvit.com">macvit.com</a></p>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 MacBook Monitor. Tüm hakları saklıdır.</p>
+            <p>Bu gizlilik politikası Apple App Store gereksinimlerine uygun olarak hazırlanmıştır.</p>
+        </div>
+    </div>
+</body>
+</html>
