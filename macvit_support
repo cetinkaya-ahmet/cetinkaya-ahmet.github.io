@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MacVit - Support & Help</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 15px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .section h2 {
+            color: #1e3c72;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .section h3 {
+            color: #2a5298;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            margin-top: 20px;
+            font-weight: 600;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            color: #555;
+        }
+
+        .section ul {
+            padding-left: 20px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: none;
+        }
+
+        .faq-item {
+            background: rgba(255, 255, 255, 0.7);
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .faq-question {
+            padding: 15px 20px;
+            background: rgba(102, 126, 234, 0.1);
+            cursor: pointer;
+            font-weight: 600;
+            color: #1e3c72;
+            transition: background-color 0.3s ease;
+        }
+
+        .faq-question:hover {
+            background: rgba(102, 126, 234, 0.2);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 15px 20px;
+            max-height: 500px;
+        }
+
+        .contact-form {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .contact-form h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+            color: #fff;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            color: #1e3c72;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .requirements {
+            background: linear-gradient(120deg, #ffeaa7 0%, #fab1a0 100%);
+            color: #2d3436;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+
+        .quick-links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .quick-link {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+
+        .quick-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .quick-link h4 {
+            color: #1e3c72;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+                border-radius: 15px;
+            }
+            
+            .header {
+                padding: 30px 20px;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 20px;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+
+            .quick-links {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>MacVit Support</h1>
+            <p>Get help and support for your MacVit application</p>
+        </div>
+
+        <div class="content">
+            <div class="highlight">
+                <p><strong>Welcome to MacVit Support!</strong> We're here to help you get the most out of your Mac monitoring experience. Find answers to common questions, troubleshooting guides, and contact information below.</p>
+            </div>
+
+            <div class="section">
+                <h2>System Requirements</h2>
+                <div class="requirements">
+                    <h3>Minimum Requirements:</h3>
+                    <ul>
+                        <li><strong>macOS:</strong> macOS 11.0 (Big Sur) or later</li>
+                        <li><strong>RAM:</strong> 4GB minimum (8GB recommended)</li>
+                        <li><strong>Storage:</strong> 50MB available space</li>
+                        <li><strong>Architecture:</strong> Intel or Apple Silicon (M1/M2/M3) processors</li>
+                        <li><strong>Permissions:</strong> System monitoring access may be required</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Quick Help</h2>
+                <div class="quick-links">
+                    <div class="quick-link">
+                        <h4>🖥️ Dashboard Overview</h4>
+                        <p>Learn how to navigate the main dashboard and understand the monitoring cards</p>
+                    </div>
+                    <div class="quick-link">
+                        <h4>📊 System Monitoring</h4>
+                        <p>Understand CPU, memory, disk, and network monitoring features</p>
+                    </div>
+                    <div class="quick-link">
+                        <h4>🔋 Battery & Power</h4>
+                        <p>Monitor your MacBook's battery health and power consumption</p>
+                    </div>
+                    <div class="quick-link">
+                        <h4>⚙️ Settings & Preferences</h4>
+                        <p>Customize your monitoring experience and notification settings</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Frequently Asked Questions</h2>
+                
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Why is MacVit asking for system permissions?
+                    </div>
+                    <div class="faq-answer">
+                        <p>MacVit requires certain system permissions to monitor your Mac's hardware and system information. These permissions are necessary to display accurate CPU usage, memory consumption, disk activity, and temperature data. All monitoring is done locally on your device - no data is sent to external servers.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How do I grant necessary permissions to MacVit?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Go to System Preferences > Security & Privacy > Privacy tab. Look for "Developer Tools" or "Full Disk Access" and ensure MacVit is checked. You may also need to grant permissions under "Accessibility" for complete system monitoring.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Is MacVit consuming too much battery or CPU?
+                    </div>
+                    <div class="faq-answer">
+                        <p>MacVit is designed to be lightweight and efficient. If you notice high CPU usage, try reducing the monitoring frequency in settings. The app typically uses less than 1% CPU and minimal battery when running in the background.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Why are some monitoring features not working?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Some features may require additional permissions or may not be available on older Mac models. Temperature monitoring, for example, requires specific hardware sensors. Check that you've granted all necessary permissions and that your Mac model supports the feature.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        Can I customize the dashboard layout?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! You can customize which monitoring cards appear on your dashboard through the app preferences. You can also adjust update intervals and notification thresholds for different system metrics.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question" onclick="toggleFAQ(this)">
+                        How do I report a bug or request a feature?
+                    </div>
+                    <div class="faq-answer">
+                        <p>Use the contact form below to report bugs or request new features. Please include your macOS version, Mac model, and a detailed description of the issue or feature request.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>Troubleshooting</h2>
+                
+                <h3>Common Issues and Solutions:</h3>
+                
+                <p><strong>MacVit won't launch:</strong></p>
+                <ul>
+                    <li>Ensure your macOS version meets the minimum requirements</li>
+                    <li>Try restarting your Mac and launching the app again</li>
+                    <li>Check if Gatekeeper is blocking the app in Security & Privacy settings</li>
+                </ul>
+
+                <p><strong>Inaccurate system information:</strong></p>
+                <ul>
+                    <li>Grant full system access permissions</li>
+                    <li>Restart the app to refresh system connections</li>
+                    <li>Some information may take a few seconds to update initially</li>
+                </ul>
+
+                <p><strong>App crashes or freezes:</strong></p>
+                <ul>
+                    <li>Update to the latest version from the App Store</li>
+                    <li>Reset app preferences in Settings</li>
+                    <li>Contact support with crash logs if the issue persists</li>
+                </ul>
+            </div>
+
+            <div class="contact-form">
+                <h3>Contact Support</h3>
+                <p style="text-align: center; margin-bottom: 20px;">Need additional help? Send us a message and we'll get back to you as soon as possible.</p>
+                
+                <form action="mailto:4hmetcetinkaya@gmail.com" method="post" enctype="text/plain">
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mac-model">Mac Model</label>
+                        <input type="text" id="mac-model" name="mac-model" placeholder="e.g., MacBook Pro 14-inch 2023">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="macos-version">macOS Version</label>
+                        <input type="text" id="macos-version" name="macos-version" placeholder="e.g., macOS 14.1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="issue-type">Issue Type</label>
+                        <select id="issue-type" name="issue-type">
+                            <option value="">Select an issue type</option>
+                            <option value="bug-report">Bug Report</option>
+                            <option value="feature-request">Feature Request</option>
+                            <option value="installation-issue">Installation Issue</option>
+                            <option value="permission-problem">Permission Problem</option>
+                            <option value="performance-issue">Performance Issue</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" placeholder="Please describe your issue or question in detail..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 MacVit. All rights reserved.</p>
+            <p>For urgent issues, please include your system information in your message.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all FAQ items
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Toggle current item
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        // Form enhancement
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(e) {
+                // Create a formatted email body
+                const formData = new FormData(form);
+                const emailBody = Array.from(formData.entries())
+                    .map(([key, value]) => `${key.replace('-', ' ').toUpperCase()}: ${value}`)
+                    .join('\n\n');
+                
+                // Update the form action with formatted body
+                const subject = encodeURIComponent('MacVit Support Request');
+                const body = encodeURIComponent(`MacVit Support Request\n\n${emailBody}`);
+                form.action = `mailto:4hmetcetinkaya@gmail.com?subject=${subject}&body=${body}`;
+            });
+        });
+    </script>
+</body>
+</html>
